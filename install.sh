@@ -29,12 +29,21 @@ if [ -n "$(ps -u $USER | grep wavid)" ] && [ -d $CONFIGFOLDER ] ; then
 else 
   sudo chown -R $USER:$USER ~/
 fi
-sudo apt-get update -y
+# Start installation
+sudo apt install -y software-properties-common
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt update && sudo apt upgrade -y 
+sudo apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev 
+sudo apt install -y libevent-dev bsdmainutils libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git 
+sudo apt install -y libminiupnpc-dev libzmq5
+sudo apt-get install -y pwgen
+
 mkdir ~/wavi
 mkdir ~/.wavicore
 cd ~/wavi
 wget $COIN
 tar xvzf *.tar.gz
+rm *.tar.gz
 
 if [ ! -f "$BINFOLDER/wavid" ]; then
 	echo -e "{GREEN}Copying bin files...{NC}"
@@ -43,8 +52,7 @@ if [ ! -f "$BINFOLDER/wavid" ]; then
 else
 	echo -e "{GREEN}Bin files exist. Skipping copy...{NC}"
 fi
-
-sudo apt-get install -y pwgen
+rm wavi*
 
 # writing wavi.conf file:
 echo -e "{GREEN}Writing wavi config file...{NC}"
@@ -66,9 +74,9 @@ wavid -daemon
 sleep 17
 MASTERNODEKEY=$(./wavi-cli masternode genkey)
 echo -e "masternode=1\nmasternodeprivkey=$MASTERNODEKEY\n" >> $CONFIGFOLDER/$CONFIG_FILE
-echo "addnode=explorer.wavicoin.info\n" >>  $CONFIGFOLDER/$CONFIG_FILE
-echo "#addnode=">> $CONFIGFOLDER/$CONFIG_FILE
+#echo "addnode=explorer.wavicoin.info\n" >>  $CONFIGFOLDER/$CONFIG_FILE
 wavi-cli stop
+echo "addnode=203.189.97.135\naddnode=5.14.40.222\naddnode=188.168.4.8\naddnode=212.164.197.117\naddnode=203.189.97.135\naddnode=59.26.73.202\naddnode=92.124.134.38\naddnode=119.130.34.208\naddnode=31.14.135.157">> $CONFIGFOLDER/$CONFIG_FILE
 
 # installing SENTINEL
 echo -e "{GREEN}Start Sentinel installing process...{NC}"
