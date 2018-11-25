@@ -1,6 +1,7 @@
 #!/bin/bash
 
 COIN='https://github.com/wavidev-the-man/wavi/releases/download/v0.12.2.4reup/wavicore-0.12.2.4-ubuntu64.tar.gz'
+COIN_NAME='wavicore-0.12.2.4-ubuntu64.tar.gz'
 RPCPORT=9982
 PORT=9983
 CONFIG_FILE='wavi.conf'
@@ -42,8 +43,8 @@ mkdir ~/wavi
 mkdir ~/.wavicore
 cd ~/wavi
 wget $COIN
-tar xvzf *.tar.gz
-rm *.tar.gz
+tar xvzf $COIN_NAME
+rm $COIN_NAME
 
 if [ ! -f "$BINFOLDER/wavid" ]; then
 	echo -e "{GREEN}Copying bin files...{NC}"
