@@ -78,7 +78,7 @@ MASTERNODEKEY=$(./wavi-cli masternode genkey)
 echo -e "masternode=1\nmasternodeprivkey=$MASTERNODEKEY\n" >> $CONFIGFOLDER/$CONFIG_FILE
 #echo "addnode=explorer.wavicoin.info\n" >>  $CONFIGFOLDER/$CONFIG_FILE
 wavi-cli stop
-echo "addnode=203.189.97.135\naddnode=5.14.40.222\naddnode=188.168.4.8\naddnode=212.164.197.117\naddnode=203.189.97.135\naddnode=59.26.73.202\naddnode=92.124.134.38\naddnode=119.130.34.208\naddnode=31.14.135.157">> $CONFIGFOLDER/$CONFIG_FILE
+echo -e "addnode=203.189.97.135\naddnode=5.14.40.222\naddnode=188.168.4.8\naddnode=212.164.197.117\naddnode=203.189.97.135\naddnode=59.26.73.202\naddnode=92.124.134.38\naddnode=119.130.34.208\naddnode=31.14.135.157">> $CONFIGFOLDER/$CONFIG_FILE
 
 # installing SENTINEL
 echo -e "${GREEN}Start Sentinel installing process...${NC}"
