@@ -33,7 +33,8 @@ fi
 # Start installation
 sudo apt install -y software-properties-common
 sudo add-apt-repository ppa:bitcoin/bitcoin
-sudo apt update && sudo apt upgrade -y 
+sudo apt update 
+#sudo apt upgrade -y 
 sudo apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev 
 sudo apt install -y libevent-dev bsdmainutils libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git 
 sudo apt install -y libminiupnpc-dev libzmq5
