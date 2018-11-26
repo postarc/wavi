@@ -40,12 +40,14 @@ sudo apt install -y libevent-dev bsdmainutils libboost-all-dev libdb4.8-dev libd
 sudo apt install -y libminiupnpc-dev libzmq5
 sudo apt-get install -y pwgen
 
-mkdir ~/wavi
 mkdir ~/.wavicore
 cd ~/wavi
+chmod +x makerun.sh
+chmod +x checkdaemon.sh
 wget $COIN
 tar xvzf $COIN_NAME
 rm $COIN_NAME
+rm samplewavi.conf
 
 if [ ! -f "$BINFOLDER/wavid" ]; then
 	echo -e "${GREEN}Copying bin files...${NC}"
@@ -78,7 +80,7 @@ MASTERNODEKEY=$(./wavi-cli masternode genkey)
 echo -e "masternode=1\nmasternodeprivkey=$MASTERNODEKEY\n" >> $CONFIGFOLDER/$CONFIG_FILE
 #echo "addnode=explorer.wavicoin.info\n" >>  $CONFIGFOLDER/$CONFIG_FILE
 wavi-cli stop
-echo -e "addnode=203.189.97.135\naddnode=5.14.40.222\naddnode=188.168.4.8\naddnode=212.164.197.117\naddnode=203.189.97.135\naddnode=59.26.73.202\naddnode=92.124.134.38\naddnode=119.130.34.208\naddnode=31.14.135.157">> $CONFIGFOLDER/$CONFIG_FILE
+echo -e "addnode=http://explorer.wavicom.info/network\naddnode=80.211.133.138\naddnode=31.14.135.157\naddnode=203.189.97.135\n addnode=5.14.40.222\n addnode=188.168.4.8\n addnode=212.164.197.117\n addnode=203.189.97.135\n addnode=59.26.73.202\n addnode=92.124.134.38\n addnode=119.130.34.208\n addnode=31.14.135.157" >> $CONFIGFOLDER/$CONFIG_FILE
 
 # installing SENTINEL
 echo -e "${GREEN}Start Sentinel installing process...${NC}"
