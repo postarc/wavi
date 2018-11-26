@@ -76,7 +76,7 @@ echo -e "rpcuser=waviuser$PORT\nrpcpassword=${GEN_PASS}\nrpcport=$RPCPORT\nexter
 # set masternodeprivkey
 wavid -daemon
 sleep 17
-MASTERNODEKEY=$(./wavi-cli masternode genkey)
+MASTERNODEKEY=$(wavi-cli masternode genkey)
 echo -e "masternode=1\nmasternodeprivkey=$MASTERNODEKEY\n" >> $CONFIGFOLDER/$CONFIG_FILE
 #echo "addnode=explorer.wavicoin.info\n" >>  $CONFIGFOLDER/$CONFIG_FILE
 wavi-cli stop
