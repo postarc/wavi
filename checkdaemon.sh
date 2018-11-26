@@ -5,12 +5,12 @@
 # */30 * * * * ~/wavi/checkdaemon.sh
 
 previousBlock=$(cat ~/wavi/blockcount)
-currentBlock=$(wavi-cli $1 $2 getblockcount)
+currentBlock=$(/usr/local/bin/wavi-cli $1 $2 getblockcount)
 
-wavi-cli $1 $2 getblockcount > ~/wavi/blockcount
+/usr/local/bin/wavi-cli $1 $2 getblockcount > ~/wavi/blockcount
 
 if [ "$previousBlock" == "$currentBlock" ]; then
-  wavi-cli $1 $2 stop
+  /usr/local/bin/wavi-cli $1 $2 stop
   sleep 5
-  wavid -daemon $1 $2 
+  /usr/local/bin/wavid -daemon $1 $2 
 fi 
