@@ -102,10 +102,10 @@ cd ~
 #git clone https://github.com/wavicointeam/mnchecker ~/mnchecker
 # setup cron
 crontab -l > tempcron
-echo -e "@reboot $BINFOLDER/wavid -daemon -conf=$CONFIGFOLDER/$CONFIG_FILE -datadir=$CONFIGFOLDER" > tempcron
+echo -e "@reboot $BINFOLDER/wavid -daemon" > tempcron
 echo -e "* * * * * cd $CONFIGFOLDER/sentinel && ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel-cron.log" >> tempcron
-echo -e "*/1 * * * * $SCRIPTFOLDER/makerun.sh -conf=$CONFIGFOLDER/$CONFIG_FILE -datadir=$CONFIGFOLDER" >> tempcron
-echo -e "*/30 * * * * $SCRIPTFOLDER/checkdaemon.sh -conf=$CONFIGFOLDER/$CONFIG_FILE -datadir=$CONFIGFOLDER" >> tempcron
+echo -e "*/1 * * * * $SCRIPTFOLDER/makerun.sh" >> tempcron
+echo -e "*/30 * * * * $SCRIPTFOLDER/checkdaemon.sh" >> tempcron
 crontab tempcron
 
 rm tempcron
