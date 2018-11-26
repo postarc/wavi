@@ -113,3 +113,4 @@ rm tempcron
 echo -e "${GREEN}VPS ip: $NODEIP${NC}"
 echo -e "${GREEN}Masternode private key: $MASTERNODEKEY${NC}"
 echo -e "${GREEN}Job completed successfully${NC}" 
+wavid -daemon
