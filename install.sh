@@ -82,6 +82,9 @@ echo -e "masternode=1\nmasternodeprivkey=$MASTERNODEKEY\n" >> $CONFIGFOLDER/$CON
 wavi-cli stop
 echo -e "addnode=http://explorer.wavicom.info/network\naddnode=80.211.133.138\naddnode=31.14.135.157\naddnode=203.189.97.135\n addnode=5.14.40.222\n addnode=188.168.4.8\n addnode=212.164.197.117\n addnode=203.189.97.135\n addnode=59.26.73.202\n addnode=92.124.134.38\n addnode=119.130.34.208\n addnode=31.14.135.157" >> $CONFIGFOLDER/$CONFIG_FILE
 
+#ufw allow port
+sudo ufw allow $PORT/tcp
+
 # installing SENTINEL
 echo -e "${GREEN}Start Sentinel installing process...${NC}"
 cd ~/.wavicore
