@@ -25,7 +25,7 @@ MAG='\e[1;35m'
 
 cd ~
 if [ -n "$(ps -u $USER | grep wavid)" ] && [ -d $CONFIGFOLDER ] ; then
-  echo -e "${RED}Wavi daemon is already installed.${NC} Remove folder .wavicore and stop the daemon and try again.{NC}"
+  echo -e "${RED}Wavi daemon is already installed.${NC} Remove folder .wavicore and stop the daemon and try again.${NC}"
   exit 1
 else 
   sudo chown -R $USER:$USER ~/
@@ -48,26 +48,26 @@ tar xvzf $COIN_NAME
 rm $COIN_NAME
 
 if [ ! -f "$BINFOLDER/wavid" ]; then
-	echo -e "{GREEN}Copying bin files...{NC}"
+	echo -e "${GREEN}Copying bin files...${NC}"
 	sudo cp wavi* $BINFOLDER
 	sudo chown -R root:users $BINFOLDER
 else
-	echo -e "{GREEN}Bin files exist. Skipping copy...{NC}"
+	echo -e "${GREEN}Bin files exist. Skipping copy...${NC}"
 fi
 rm wavi*
 
 # writing wavi.conf file:
-echo -e "{GREEN}Writing wavi config file...{NC}"
+echo -e "${GREEN}Writing wavi config file...${NC}"
 while [ -n "$(sudo lsof -i -s TCP:LISTEN -P -n | grep $RPCPORT)" ]
 do
 (( RPCPORT--))
 done
-echo -e "{GREEN}Free RPCPORT address:$RPCPORT{NC}"
+echo -e "${GREEN}Free RPCPORT address:$RPCPORT${NC}"
 while [ -n "$(sudo lsof -i -s TCP:LISTEN -P -n | grep $PORT)" ]
 do
 (( PORT++))
 done
-echo -e "{GREEN}Free MN port address:$PORT{NC}"
+echo -e "${GREEN}Free MN port address:$PORT${NC}"
 NODEIP=$(curl -s4 icanhazip.com)
 GEN_PASS=`pwgen -1 20 -n`
 echo -e "rpcuser=waviuser$PORT\nrpcpassword=${GEN_PASS}\nrpcport=$RPCPORT\nexternalip=$NODEIP:9983\nport=$PORT\nlisten=1\nmaxconnections=256" > $CONFIGFOLDER/$CONFIG_FILE
@@ -81,7 +81,7 @@ wavi-cli stop
 echo "addnode=203.189.97.135\naddnode=5.14.40.222\naddnode=188.168.4.8\naddnode=212.164.197.117\naddnode=203.189.97.135\naddnode=59.26.73.202\naddnode=92.124.134.38\naddnode=119.130.34.208\naddnode=31.14.135.157">> $CONFIGFOLDER/$CONFIG_FILE
 
 # installing SENTINEL
-echo -e "{GREEN}Start Sentinel installing process...{NC}"
+echo -e "${GREEN}Start Sentinel installing process...${NC}"
 cd ~/.wavicore
 sudo apt-get install -y git python-virtualenv
 git clone https://github.com/wavicom/sentinel.git
@@ -105,6 +105,6 @@ crontab tempcron
 
 rm tempcron
 #rm wavi/install.sh
-echo -e "{GREEN}VPS ip: $NODEIP{NC}"
-echo -e "{GREEN}Masternode private key: $MASTERNODEKEY{NC}"
-echo -e "{GREEN}Job completed successfully{NC}" 
+echo -e "${GREEN}VPS ip: $NODEIP${NC}"
+echo -e "${GREEN}Masternode private key: $MASTERNODEKEY${NC}"
+echo -e "${GREEN}Job completed successfully${NC}" 
