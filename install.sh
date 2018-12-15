@@ -39,6 +39,8 @@ sudo apt install -y build-essential libtool autotools-dev automake pkg-config li
 sudo apt install -y libevent-dev bsdmainutils libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git 
 sudo apt install -y libminiupnpc-dev libzmq5
 sudo apt-get install -y pwgen
+sudo apt-get install -y curl
+sudo apt-get install -y lsof
 
 mkdir ~/.wavicore
 cd ~/wavi
