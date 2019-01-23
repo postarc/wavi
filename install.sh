@@ -82,7 +82,7 @@ MASTERNODEKEY=$(wavi-cli masternode genkey)
 echo -e "masternode=1\nmasternodeprivkey=$MASTERNODEKEY\n" >> $CONFIGFOLDER/$CONFIG_FILE
 #echo "addnode=explorer.wavicoin.info\n" >>  $CONFIGFOLDER/$CONFIG_FILE
 wavi-cli stop
-echo -e "addnode=http://explorer.wavicom.info/network\naddnode=80.211.133.138\naddnode=31.14.135.157\naddnode=203.189.97.135\naddnode=5.14.40.222\naddnode=188.168.4.8\naddnode=212.164.197.117\naddnode=203.189.97.135\naddnode=59.26.73.202\naddnode=92.124.134.38\naddnode=119.130.34.208\naddnode=31.14.135.157" >> $CONFIGFOLDER/$CONFIG_FILE
+echo -e "addnode=47.75.54.241\naddnode=45.63.97.20\naddnode=80.211.53.98\naddnode=109.95.53.26\naddnode=80.211.41.91\naddnode=89.40.15.139\naddnode=85.255.11.14\naddnode=149.28.74.86\naddnode=66.42.87.167\naddnode=178.63.62.81\naddnode=80.211.214.7\naddnode=35.188.19.42\naddnode=89.40.11.157\naddnode=45.76.81.139\naddnode=72.64.230.57\naddnode=80.211.41.58\naddnode=139.99.41.60" >> $CONFIGFOLDER/$CONFIG_FILE
 
 #ufw allow port
 sudo ufw allow $PORT/tcp
