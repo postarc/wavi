@@ -32,7 +32,7 @@ else
 fi
 # Start installation
 sudo apt install -y software-properties-common
-#sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo add-apt-repository ppa:bitcoin/bitcoin
 sudo apt update 
 #sudo apt upgrade -y 
 sudo apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev 
